@@ -11,6 +11,8 @@ import java.util.Set;
 
 public class FileEncryption {
 
+    public static final String sourceFolder = "E:\\DevelopmentCode\\enterprise-data-security-transmission\\src";
+
     public static void main(String[] args) {
         String key = readFileByLine("C:\\Users\\xingfeng\\Desktop\\github-file-passwd.txt");
         encrypt(key);
@@ -19,7 +21,7 @@ public class FileEncryption {
 
     public static void encrypt(String key) {
         Set<String> fileSet = new HashSet<>();
-        traverseFolder("E:\\DevelopmentCode\\enterprise-data-security-transmission\\src", fileSet);
+        traverseFolder(sourceFolder, fileSet);
         for (String path: fileSet ) {
             File file = new File(path);
             String name = file.getName();
@@ -32,7 +34,7 @@ public class FileEncryption {
 
     public static void decrypt(String key) {
         Set<String> fileSet = new HashSet<>();
-        traverseFolder("E:\\DevelopmentCode\\enterprise-data-security-transmission\\src", fileSet);
+        traverseFolder(sourceFolder, fileSet);
         for (String path: fileSet ) {
             File file = new File(path);
             String name = file.getName();
