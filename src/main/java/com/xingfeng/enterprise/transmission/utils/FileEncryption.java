@@ -73,7 +73,7 @@ public class FileEncryption {
             in = new FileInputStream(sourceFile);
             Cipher cipher = getCipher(mode, Base64.getDecoder().decode(key));
             cin = new CipherInputStream(in, cipher);
-            int bufferSize = 1024;
+            int bufferSize = 1024*1024;
             byte[] cache = new byte[bufferSize];
             int nRead = 0;
             while ((nRead = cin.readNBytes(cache, 0, bufferSize)) != 0) {
